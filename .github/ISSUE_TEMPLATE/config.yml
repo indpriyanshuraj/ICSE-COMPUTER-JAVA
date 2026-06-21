@@ -1,0 +1,17 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Discuss Alternate Solutions
+    url: https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA/discussions
+    about: Share a different approach or ask doubts here
+
+  - name: Report a Code of Conduct Violation
+    url: https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA/issues
+    about: Report harassment or unacceptable behavior
+
+  - name: ICSE Official Syllabus
+    url: https://cisce.org/
+    about: Check the official ICSE Computer Applications syllabus here
+
+  - name: ICSE Specimen Papers
+    url: https://cisce.org/publications.aspx
+    about: Official specimen and board papers for reference
