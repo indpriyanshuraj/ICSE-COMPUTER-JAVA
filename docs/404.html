@@ -1,0 +1,728 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="description" content="HTTP 404 — Page Not Found | ICSE COMPUTER JAVA" />
+  <meta name="theme-color" content="#0d1117" />
+  <title>404 • ICSE COMPUTER JAVA</title>  <style>
+    :root {
+      --bg-color: #0d1117;
+      --surface-color: #161b22;
+      --surface-2: #0f141b;
+      --border-color: #30363d;
+      --border-hover: #8b949e;
+      --text-main: #c9d1d9;
+      --text-muted: #8b949e;
+      --link-color: #58a6ff;
+      --btn-bg: #21262d;
+      --btn-border: rgba(240, 246, 252, 0.1);
+      --btn-hover-bg: #30363d;
+      --btn-primary-bg: #238636;
+      --btn-primary-hover: #2ea043;
+      --danger: #f85149;
+      --success: #3fb950;
+      --warning: #d29922;
+      --radius: 6px;
+      --radius-lg: 12px;
+      --max-width: 1012px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+      overflow-x: hidden;
+    }
+
+    body { display: block; }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(15px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .animate-in {
+      animation: fadeInUp 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      opacity: 0;
+    }
+
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+    .delay-3 { animation-delay: 0.3s; }
+
+    h1, h2, h3, h4 {
+      margin-top: 0;
+      margin-bottom: 16px;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    p { margin-top: 0; margin-bottom: 16px; color: var(--text-muted); }
+    a { color: var(--link-color); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .mono { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+
+    .wrap {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 40px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .topbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-bottom: 24px;
+      border-bottom: 1px solid var(--border-color);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand-icon { font-size: 1.5rem; color: var(--text-muted); }
+    .brand-text h1 { margin: 0; font-size: 1.25rem; line-height: 1.2; }
+    .brand-text p { margin: 0; font-size: 0.85rem; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 5px 16px;
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 20px;
+      cursor: pointer;
+      border: 1px solid var(--btn-border);
+      border-radius: var(--radius);
+      text-decoration: none !important;
+      transition: all 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+      appearance: none;
+    }
+
+    .btn:active { transform: scale(0.97); }
+    .btn.primary { color: #ffffff; background-color: var(--btn-primary-bg); }
+    .btn.primary:hover { background-color: var(--btn-primary-hover); }
+    .btn.secondary { color: var(--text-main); background-color: var(--btn-bg); }
+    .btn.secondary:hover { background-color: var(--btn-hover-bg); border-color: var(--border-hover); }
+    .btn.danger { color: var(--danger); background-color: var(--btn-bg); }
+    .btn.danger:hover { background-color: var(--danger); color: white; border-color: var(--danger); }
+
+    .badge {
+      display: inline-block;
+      padding: 2px 7px;
+      font-size: 12px;
+      font-weight: 500;
+      border-radius: 2em;
+      border: 1px solid var(--border-color);
+      background: rgba(255,255,255,0.02);
+    }
+
+    .layout-main {
+      display: grid;
+      grid-template-columns: 2fr 1.1fr;
+      gap: 24px;
+      align-items: start;
+    }
+
+    .panel {
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      padding: 24px;
+      transition: border-color 0.3s;
+    }
+
+    .panel:hover { border-color: #484f58; }
+    .panel-surface { background-color: var(--surface-color); }
+
+    .blankslate { text-align: center; padding: 48px 32px; }
+    .blankslate-icon {
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow: 0 4px 12px rgba(0,0,0,0.5);
+    }
+    .blankslate h2 { font-size: 24px; margin-bottom: 12px; }
+    .button-row { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 24px; }
+
+    .trouble-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .trouble-item {
+      font-size: 13px;
+      color: var(--text-muted);
+      padding-left: 20px;
+      position: relative;
+    }
+
+    .trouble-item::before {
+      content: "›";
+      position: absolute;
+      left: 0;
+      color: var(--link-color);
+      font-weight: bold;
+      font-size: 16px;
+      top: -2px;
+    }
+
+    .trouble-item strong { color: var(--text-main); display: block; margin-bottom: 2px; }
+
+    .link-list { display: flex; flex-direction: column; gap: 12px; }
+    .link-item {
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius);
+      background-color: var(--bg-color);
+      transition: all 0.2s;
+    }
+
+    .link-item:hover {
+      background-color: var(--surface-color);
+      border-color: var(--border-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .link-item strong { color: var(--link-color); font-size: 14px; margin-bottom: 4px; }
+    .link-item span { color: var(--text-muted); font-size: 12px; }
+
+    .accordion-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .accordion-header h3 { margin: 0; font-size: 14px; }
+    .accordion-icon {
+      transition: transform 0.3s ease;
+      font-size: 12px;
+      color: var(--text-muted);
+    }
+
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.3s ease;
+    }
+
+    .accordion-inner { overflow: hidden; }
+    .panel.open .accordion-content { grid-template-rows: 1fr; margin-top: 16px; }
+    .panel.open .accordion-icon { transform: rotate(180deg); }
+
+    .diag-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+    .diag-table td { padding: 6px 0; border-bottom: 1px solid var(--border-color); vertical-align: top; }
+    .diag-table td:first-child { color: var(--text-muted); width: 35%; }
+    .diag-table td:last-child { color: var(--text-main); text-align: right; word-break: break-word; }
+    .diag-table tr:last-child td { border-bottom: none; }
+
+    .site-footer {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      color: var(--text-muted);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    code {
+      padding: 0.2em 0.4em;
+      margin: 0;
+      font-size: 85%;
+      background-color: rgba(110, 118, 129, 0.4);
+      border-radius: var(--radius);
+      color: var(--text-main);
+    }
+
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(1, 4, 9, 0.8);
+      backdrop-filter: blur(4px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 16px;
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-overlay.active { display: flex; opacity: 1; }
+
+    .modal-content {
+      background-color: var(--surface-color);
+      border: 1px solid var(--border-color);
+      border-radius: var(--radius-lg);
+      width: 100%;
+      max-width: 560px;
+      box-shadow: 0 16px 32px rgba(0,0,0,0.8);
+      transform: scale(0.95);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .modal-overlay.active .modal-content { transform: scale(1); }
+    .modal-header {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .modal-header h3 { margin: 0; font-size: 16px; }
+    .close-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 20px;
+      cursor: pointer;
+      padding: 0 4px;
+      transition: color 0.2s;
+    }
+
+    .close-btn:hover { color: var(--danger); }
+    .modal-body { padding: 20px; font-size: 14px; overflow-y: auto; }
+    .modal-footer {
+      padding: 16px 20px;
+      border-top: 1px solid var(--border-color);
+      display: flex;
+      justify-content: flex-end;
+      gap: 12px;
+      background-color: var(--bg-color);
+      border-bottom-left-radius: var(--radius-lg);
+      border-bottom-right-radius: var(--radius-lg);
+    }
+
+    .privacy-notice {
+      background-color: rgba(210, 153, 34, 0.1);
+      border-left: 4px solid var(--warning);
+      padding: 12px;
+      margin-bottom: 20px;
+      border-radius: 4px;
+      font-size: 13px;
+      line-height: 1.5;
+      color: var(--text-muted);
+    }
+
+    .checkbox-group { display: flex; flex-direction: column; gap: 16px; }
+
+    .checkbox-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s;
+    }
+
+    .checkbox-item:hover { background-color: rgba(255,255,255,0.03); }
+    .checkbox-item input[type="checkbox"] {
+      margin-top: 4px;
+      accent-color: var(--btn-primary-bg);
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+      flex: none;
+    }
+
+    .checkbox-item input[type="checkbox"]:disabled { opacity: 0.5; cursor: not-allowed; }
+    .checkbox-item div { display: flex; flex-direction: column; gap: 4px; }
+    .checkbox-item strong { font-weight: 600; color: var(--text-main); font-size: 14px; line-height: 1.2; }
+    .checkbox-item span { font-size: 12px; color: var(--text-muted); line-height: 1.4; }
+    .checkbox-item .why { color: #8b949e; font-style: italic; font-size: 11px; margin-top: 2px; }
+
+    @media (max-width: 768px) {
+      .layout-main { grid-template-columns: 1fr; }
+      .blankslate { padding: 32px 16px; }
+      .modal-content { max-height: 95vh; }
+      .site-footer { padding-top: 28px; }
+    }
+  </style></head>
+<body>
+<noscript>
+  <div style="background:var(--danger);color:white;text-align:center;padding:10px;">
+    JavaScript is disabled. Some features on this page require JS to function correctly.
+  </div>
+</noscript><main class="wrap">
+  <header class="topbar animate-in">
+    <div class="brand">
+      <div class="brand-icon">☕</div>
+      <div class="brand-text">
+        <h1>ICSE COMPUTER JAVA</h1>
+        <p>ICSE Standard Java Practice Repository</p>
+      </div>
+    </div>
+    <div>
+      <a class="btn secondary" href="https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA" target="_blank" rel="noopener">
+        View Repository
+      </a>
+    </div>
+  </header>  <div class="layout-main">
+    <div style="display:flex;flex-direction:column;gap:24px;">
+      <section class="panel panel-surface blankslate animate-in delay-1">
+        <div class="blankslate-icon mono">404</div>
+        <h2>Page Not Found</h2>
+        <p style="max-width: 520px; margin: 0 auto;">
+          The requested page could not be found. It may have been moved, renamed, deleted, or the address may be incorrect.
+        </p><div class="button-row">
+      <a class="btn primary" href="https://indpriyanshuraj.github.io/ICSE-COMPUTER-JAVA/" target="_top" rel="noopener">Return to Homepage</a>
+      <button class="btn danger" id="triggerIssueModalBtn" type="button">Report Broken Link</button>
+    </div>
+  </section>
+
+  <section class="panel animate-in delay-2">
+    <h3>What to check first</h3>
+    <ul class="trouble-list">
+      <li class="trouble-item">
+        <strong>Check the URL</strong>
+        A spelling mistake or wrong folder name is the most common cause. GitHub Pages paths are case-sensitive.
+      </li>
+      <li class="trouble-item">
+        <strong>Use the repository structure</strong>
+        Start from the homepage or repository root and navigate from there.
+      </li>
+      <li class="trouble-item">
+        <strong>Report a broken link</strong>
+        If this page should exist, open an issue so it can be fixed.
+      </li>
+    </ul>
+  </section>
+
+  <section class="panel animate-in delay-2">
+    <h4 style="margin-top: 0; font-size: 14px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">Helpful Documentation Links</h4>
+    <div class="link-list" style="margin-top: 16px;">
+      <a class="link-item" href="https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA/wiki" target="_blank" rel="noopener">
+        <strong>Wiki & Setup Guides</strong>
+        <span>Project documentation and IDE setup instructions.</span>
+      </a>
+      <a class="link-item" href="https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA/tree/main" target="_blank" rel="noopener">
+        <strong>Browse Source Files</strong>
+        <span>Open the repository and locate the missing file or page.</span>
+      </a>
+      <a class="link-item" href="https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA/issues" target="_blank" rel="noopener">
+        <strong>Issue Tracker</strong>
+        <span>Report missing pages, broken links, or incorrect paths.</span>
+      </a>
+    </div>
+  </section>
+</div>
+
+<aside style="display:flex;flex-direction:column;gap:24px;">
+  <section class="panel animate-in delay-3" id="diagPanel">
+    <div class="accordion-header" id="toggleDiagBtn" aria-expanded="false" role="button" tabindex="0">
+      <h3>Client Diagnostics</h3>
+      <span class="accordion-icon">▼</span>
+    </div>
+
+    <div class="accordion-content">
+      <div class="accordion-inner">
+        <table class="diag-table mono">
+          <tbody>
+            <tr><td>Status</td><td style="color: var(--danger)">404 Not Found</td></tr>
+            <tr><td>Path</td><td><code id="currentPath">/</code></td></tr>
+            <tr><td>Host</td><td id="hostName">GitHub Pages</td></tr>
+            <tr><td>Referrer</td><td id="referrer">Direct / Bookmark</td></tr>
+            <tr><td>Timezone</td><td id="timezone">—</td></tr>
+            <tr><td>Browser</td><td id="browser">—</td></tr>
+            <tr><td>Platform</td><td id="platform">—</td></tr>
+            <tr><td>Network</td><td id="connection">—</td></tr>
+            <tr><td>Language</td><td id="language">—</td></tr>
+          </tbody>
+        </table>
+
+        <div style="display:flex;flex-direction:column;gap:8px;margin-top:20px;">
+          <button class="btn secondary" id="copyDiagnostics" type="button" style="width:100%;">Copy Output</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="panel animate-in delay-3">
+    <h3 style="font-size:14px; margin-bottom:12px;">Extra Hardware Details</h3>
+    <p style="margin-bottom:12px; font-size:13px; color:var(--text-muted);">
+      Keep this disabled unless the issue is extreme or hard to reproduce.
+    </p>
+    <table class="diag-table mono">
+      <tbody>
+        <tr><td>Screen</td><td id="screenRes">—</td></tr>
+        <tr><td>Color Depth</td><td id="colorDepth">—</td></tr>
+        <tr><td>Viewport</td><td id="viewport">—</td></tr>
+        <tr><td>Logical Cores</td><td id="cores">—</td></tr>
+        <tr><td>Memory</td><td id="memory">—</td></tr>
+      </tbody>
+    </table>
+  </section>
+</aside>
+
+  </div>  <footer class="site-footer animate-in delay-3">
+    <div>
+      <span>© ICSE COMPUTER JAVA</span>
+      <span style="margin: 0 8px;">•</span>
+      <a href="https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA" target="_blank" rel="noopener">Repository</a>
+      <span style="margin: 0 8px;">•</span>
+      <a href="https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA/issues" target="_blank" rel="noopener">Issues</a>
+    </div>
+    <div>
+      <span class="badge mono">HTTP 404 Handler</span>
+    </div>
+  </footer>
+</main><div id="issueModal" class="modal-overlay" aria-hidden="true">
+  <div class="modal-content" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-header">
+      <h3 id="modalTitle">Submit Bug Report</h3>
+      <button class="close-btn" id="closeModalBtn" aria-label="Close">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div class="privacy-notice">
+        <strong>Privacy note:</strong> This opens a public GitHub issue. Only include the details you are comfortable sharing.
+      </div><div class="checkbox-group">
+    <label class="checkbox-item">
+      <input type="checkbox" id="chkUrl" checked disabled />
+      <div>
+        <strong>Target URL & Host (Required)</strong>
+        <span>The broken path and the current host.</span>
+        <span class="why">Why: Needed to identify the exact broken link.</span>
+      </div>
+    </label>
+
+    <label class="checkbox-item">
+      <input type="checkbox" id="chkReferrer" checked />
+      <div>
+        <strong>Referrer URL</strong>
+        <span>The page you came from, if available.</span>
+        <span class="why">Why: Helps locate the source link.</span>
+      </div>
+    </label>
+
+    <label class="checkbox-item">
+      <input type="checkbox" id="chkBrowser" />
+      <div>
+        <strong>Browser & Platform</strong>
+        <span>Your browser and operating system.</span>
+        <span class="why">Why: Useful when the issue behaves differently on different devices.</span>
+      </div>
+    </label>
+
+    <label class="checkbox-item">
+      <input type="checkbox" id="chkNetwork" />
+      <div>
+        <strong>Network & Locale</strong>
+        <span>Timezone, language, and online status.</span>
+        <span class="why">Why: Helps with time-based or regional issues.</span>
+      </div>
+    </label>
+
+    <label class="checkbox-item">
+      <input type="checkbox" id="chkHardware" />
+      <div>
+        <strong>Hardware & Display Specs</strong>
+        <span>Screen resolution, viewport, cores, and memory.</span>
+        <span class="why">Why: Keep this for rare layout or performance debugging.</span>
+      </div>
+    </label>
+  </div>
+</div>
+
+<div class="modal-footer">
+  <button class="btn secondary" id="cancelModalBtn" type="button">Cancel</button>
+  <button class="btn primary" id="generateIssueBtn" type="button">Generate GitHub Issue</button>
+</div>
+
+  </div>
+</div><script>
+  (function () {
+    const $ = (id) => document.getElementById(id);
+
+    const now = new Date();
+    const browser = navigator.userAgent;
+    const platform = navigator.platform || 'Unknown';
+    const language = navigator.language || 'Unknown';
+    const screenRes = `${window.screen.width} × ${window.screen.height} (@${window.devicePixelRatio || 1}x)`;
+    const colorDepth = `${window.screen.colorDepth}-bit`;
+    const viewport = `${window.innerWidth} × ${window.innerHeight}`;
+    const connection = navigator.onLine ? 'Online' : 'Offline';
+    const cores = navigator.hardwareConcurrency || 'Unknown';
+    const memory = navigator.deviceMemory ? `${navigator.deviceMemory}GB+` : 'Unknown';
+    const timezone = Intl.DateTimeFormat().resolvedOptions().timeZone || 'Unknown';
+
+    const path = location.pathname + location.search + location.hash;
+    const referrer = document.referrer ? (() => {
+      try { return new URL(document.referrer).href; } catch (_) { return 'Unknown'; }
+    })() : 'Direct / Bookmark';
+    const fullUrl = location.href;
+
+    $('currentPath').textContent = path || '/';
+    $('referrer').textContent = referrer;
+    $('timezone').textContent = timezone;
+    $('browser').textContent = browser;
+    $('platform').textContent = platform;
+    $('connection').textContent = connection;
+    $('language').textContent = language;
+    $('screenRes').textContent = screenRes;
+    $('colorDepth').textContent = colorDepth;
+    $('viewport').textContent = viewport;
+    $('cores').textContent = cores;
+    $('memory').textContent = memory;
+
+    const diagPanel = $('diagPanel');
+    const toggleDiagBtn = $('toggleDiagBtn');
+
+    toggleDiagBtn.addEventListener('click', () => {
+      diagPanel.classList.toggle('open');
+      toggleDiagBtn.setAttribute('aria-expanded', diagPanel.classList.contains('open'));
+    });
+
+    toggleDiagBtn.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        toggleDiagBtn.click();
+      }
+    });
+
+    const rawDiagnostics = [
+      `Status: 404 Not Found`,
+      `Target URL: ${fullUrl}`,
+      `Path: ${path || '/'}`,
+      `Host: ${location.host || 'GitHub Pages'}`,
+      `Referrer: ${document.referrer || 'Direct / Bookmark'}`,
+      `Timestamp: ${now.toISOString()}`,
+      `Timezone: ${timezone}`,
+      `Browser: ${browser}`,
+      `Platform: ${platform}`,
+      `Language: ${language}`,
+      `Network: ${connection}`
+    ].join('\n');
+
+    const modal = $('issueModal');
+
+    const openModal = () => {
+      modal.style.display = 'flex';
+      modal.setAttribute('aria-hidden', 'false');
+      setTimeout(() => modal.classList.add('active'), 10);
+    };
+
+    const closeModal = () => {
+      modal.classList.remove('active');
+      modal.setAttribute('aria-hidden', 'true');
+      setTimeout(() => modal.style.display = 'none', 200);
+    };
+
+    $('triggerIssueModalBtn').addEventListener('click', openModal);
+    $('closeModalBtn').addEventListener('click', closeModal);
+    $('cancelModalBtn').addEventListener('click', closeModal);
+
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    function buildIssueBody() {
+      let diagData = `Status: 404 Not Found\nTarget URL: ${fullUrl}\nPath: ${path || '/'}\nHost: ${location.host || 'GitHub Pages'}\nTimestamp: ${now.toISOString()}\n`;
+
+      if ($('chkReferrer').checked) {
+        diagData += `Referrer: ${document.referrer || 'Direct / Bookmark'}\n`;
+      }
+      if ($('chkBrowser').checked) {
+        diagData += `Browser: ${browser}\nPlatform: ${platform}\n`;
+      }
+      if ($('chkNetwork').checked) {
+        diagData += `Timezone: ${timezone}\nLanguage: ${language}\nNetwork: ${connection}\n`;
+      }
+      if ($('chkHardware').checked) {
+        diagData += `Screen: ${screenRes}\nColor Depth: ${colorDepth}\nViewport: ${viewport}\nCores: ${cores}\nRAM: ${memory}\n`;
+      }
+
+      return diagData;
+    }
+
+    $('generateIssueBtn').addEventListener('click', () => {
+      const bodyPreview = buildIssueBody();
+      const confirmed = window.confirm(
+        'Open a new GitHub issue with the selected diagnostics?\n\nOnly the checked details will be included.'
+      );
+      if (!confirmed) return;
+
+      const issueTitle = encodeURIComponent(`[404] Broken Link: ${path || '/'}`);
+      const issueBody = encodeURIComponent(
+        `### Description\nI encountered a 404 Page Not Found error.\n\n` +
+        `### Environment Data\n<details><summary><b>View Diagnostics</b></summary>\n\n\`\`\`text\n${bodyPreview}\n\`\`\`\n</details>\n\n` +
+        `### Expected Result\nThe requested page should be accessible from the repository or homepage.\n\n` +
+        `### Notes\nPlease verify the link, file path, or published route.`
+      );
+
+      const issueUrl = `https://github.com/indpriyanshuraj/ICSE-COMPUTER-JAVA/issues/new?title=${issueTitle}&body=${issueBody}`;
+      window.open(issueUrl, '_blank', 'noopener');
+      closeModal();
+    });
+
+    async function copyText(text) {
+      try {
+        await navigator.clipboard.writeText(text);
+        return true;
+      } catch (e) {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        let ok = false;
+        try { ok = document.execCommand('copy'); } catch (_) {}
+        document.body.removeChild(ta);
+        return ok;
+      }
+    }
+
+    function flash(btn, ok) {
+      const old = btn.textContent;
+      btn.textContent = ok ? 'Copied!' : 'Failed';
+      btn.style.borderColor = ok ? 'var(--success)' : 'var(--danger)';
+      setTimeout(() => {
+        btn.textContent = old;
+        btn.style.borderColor = 'var(--btn-border)';
+      }, 1200);
+    }
+
+    $('copyDiagnostics').addEventListener('click', async () => {
+      const ok = await copyText(rawDiagnostics);
+      flash($('copyDiagnostics'), ok);
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        if (modal.classList.contains('active')) closeModal();
+        else window.location.href = 'https://indpriyanshuraj.github.io/ICSE-COMPUTER-JAVA/';
+      }
+    });
+  })();
+</script></body>
+</html>
